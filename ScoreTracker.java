@@ -45,6 +45,7 @@ public class ScoreTracker {
            System.out.println("Total scores: " + total);
            System.out.println("Highest score: " + highest);
            System.out.println("Average score: " + average);
+           System.out.println("Letter Grade: " + letterGrade);
            }
            scanner.close();
         }
