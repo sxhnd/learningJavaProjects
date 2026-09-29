@@ -30,7 +30,7 @@ public class RideAdmissionChecker {
             else {
                 System.out.println("Admitted.");
             }
-            
+            scanner.close();
         }
 
 }
