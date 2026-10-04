@@ -4,6 +4,7 @@ A set of Java console programs I built while learning the language.
 
 ![Java](https://img.shields.io/badge/java-21-ED8B00?logo=openjdk&logoColor=white)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-lightgrey)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Overview
 
@@ -79,6 +80,10 @@ learningJavaProjects/
 - Programs that read numbers with `Scanner.nextInt()` crash if you type text instead.
 - `AlmostWordle` marks a repeated letter as "in the wrong spot" every time it appears, even when the word only has one of it.
 - All the logic in each program lives in `main`. Splitting it into methods is the next step.
+
+## License
+
+Released under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Author
 
