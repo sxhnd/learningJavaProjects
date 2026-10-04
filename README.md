@@ -1,29 +1,87 @@
-# learningJavaProjects
+# Learning Java Projects
 
-Small Java programs I wrote while learning the language. Each one is a single file that runs in the terminal.
+A set of Java console programs I built while learning the language.
+
+![Java](https://img.shields.io/badge/java-21-ED8B00?logo=openjdk&logoColor=white)
+![Dependencies](https://img.shields.io/badge/dependencies-none-lightgrey)
+
+## Overview
+
+Each program is a single self-contained file that runs in the terminal and uses only the standard library. Together they cover loops, conditionals, arrays, `switch` menus, input validation, random numbers, and a binary search.
 
 ## Programs
 
-| File | What it does |
-|---|---|
-| `AlmostWordle.java` | My attempt at Wordle. It picks a random five-letter word from a short list and gives you 6 guesses. After each guess it goes through your word letter by letter and says if that letter is in the correct spot, in the wrong spot, or not in the word. |
-| `GuessingGame.java` | You think of a number from 1 to 1000 and the program guesses it with binary search. Type `h` if your number is higher, `l` if it's lower, and `c` when it gets it. It never needs more than 10 guesses since 2^10 = 1024. |
-| `ATMTracker.java` | Asks for a PIN and locks the account after 3 wrong tries. Once you're in, you enter a starting balance and can check it, deposit, or withdraw. It won't let you withdraw more than you have. |
-| `RockPaperScissors.java` | Rock paper scissors against the computer. First to 5 wins, then you can play again. |
-| `RideAdmissionChecker.java` | Asks for your age, your height, whether an adult is with you, and whether you have a ticket. Then it either admits you or tells you why not. Height has to be 48 to 78 inches, kids under 12 need an adult, and you need a ticket. |
-| `ScoreTracker.java` | Takes test scores from 0 to 100 until you enter -1, then prints the total, highest score, average, and letter grade. |
-| `MultiplicationTable.java` | Prints the multiplication table for a number between a start and end you pick, and adds up the products at the end. |
-| `ReviewMidterm.java` | Menu program I made to study for my midterm. It converts a number to binary, prints a number triangle, shifts a letter forward by one (z wraps back to a), and averages a list of numbers using int and double division so you can compare them. |
+| Program | Description | Concepts |
+|---|---|---|
+| [`AlmostWordle`](AlmostWordle.java) | Wordle in the terminal. Picks a random five-letter word and gives you 6 guesses, with feedback on each letter. | Arrays, `Random`, string methods, nested loops |
+| [`GuessingGame`](GuessingGame.java) | You think of a number from 1 to 1000 and the program finds it with binary search in 10 guesses or fewer. | Binary search, replay loop |
+| [`ATMTracker`](ATMTracker.java) | PIN login with a 3-try lockout, then a menu to check balance, deposit, and withdraw. | `switch` menus, input validation |
+| [`RockPaperScissors`](RockPaperScissors.java) | Rock paper scissors against the computer. First to 5 wins, with a running score. | `Random`, compound conditions |
+| [`RideAdmissionChecker`](RideAdmissionChecker.java) | Decides if a rider gets in based on height, age, adult supervision, and ticket. | `if`/`else if` chains, booleans |
+| [`ScoreTracker`](ScoreTracker.java) | Reads test scores until -1, then reports total, highest, average, and letter grade. | Sentinel loops, running totals |
+| [`MultiplicationTable`](MultiplicationTable.java) | Prints a multiplication table over a custom range and sums the products. | `for` loops, accumulators |
+| [`ReviewMidterm`](ReviewMidterm.java) | Midterm study menu: decimal to binary, number triangle, letter shift, and int vs. double averages. | Modulo math, `char` arithmetic, integer division |
 
-## Running a program
+## Getting started
 
-You need a JDK installed. I'm on Java 21. From the repo folder:
+### Requirements
 
-```
+A JDK, version 11 or newer. I develop on Java 21.
+
+### Run a program
+
+```bash
+git clone https://github.com/sxhnd/learningJavaProjects.git
+cd learningJavaProjects
 javac GuessingGame.java
 java GuessingGame
 ```
 
-Same two commands for any of the other files, just change the name.
+Swap `GuessingGame` for any other program name.
 
-The input checking is pretty basic right now. If a program asks for a number and you type a word, it will crash.
+## Example
+
+`GuessingGame` finding 343. The program asks, and the player answers `h` (higher), `l` (lower), or `c` (correct).
+
+```text
+Is it 500? (h/l/c) l
+You said: l
+Is it 250? (h/l/c) h
+You said: h
+Is it 375? (h/l/c) l
+You said: l
+Is it 312? (h/l/c) h
+You said: h
+Is it 343? (h/l/c) c
+You said: c
+Your answer is 343. Thank you for playing!
+```
+
+Each guess cuts the remaining range in half. Since 2^10 = 1024, any number from 1 to 1000 is found in at most 10 guesses.
+
+## Project structure
+
+```text
+learningJavaProjects/
+├── AlmostWordle.java
+├── ATMTracker.java
+├── GuessingGame.java
+├── MultiplicationTable.java
+├── ReviewMidterm.java
+├── RideAdmissionChecker.java
+├── RockPaperScissors.java
+├── ScoreTracker.java
+└── README.md
+```
+
+## Known limitations
+
+- Programs that read numbers with `Scanner.nextInt()` crash if you type text instead.
+- `AlmostWordle` marks a repeated letter as "in the wrong spot" every time it appears, even when the word only has one of it.
+- All the logic in each program lives in `main`. Splitting it into methods is the next step.
+
+## Author
+
+Andre Idrissi, Math and CS student at the University of Georgia
+
+[GitHub](https://github.com/sxhnd) · [LinkedIn](https://www.linkedin.com/in/andre-idrissi-6693b7353/)
