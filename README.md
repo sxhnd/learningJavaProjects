@@ -8,7 +8,7 @@ A set of Java console programs I built while learning the language.
 
 ## Overview
 
-Each program is a single self-contained file that runs in the terminal and uses only the standard library. Together they cover loops, conditionals, arrays, `switch` menus, input validation, random numbers, and a binary search.
+Each program is a single self-contained file that runs in the terminal and uses only the standard library. Together they cover loops, conditionals, arrays, enums, `switch` menus, input validation, random numbers, and a binary search.
 
 ## Programs
 
@@ -22,6 +22,7 @@ Each program is a single self-contained file that runs in the terminal and uses 
 | [`ScoreTracker`](ScoreTracker.java) | Reads test scores until -1, then reports total, highest, average, and letter grade. | Sentinel loops, running totals |
 | [`MultiplicationTable`](MultiplicationTable.java) | Prints a multiplication table over a custom range and sums the products. | `for` loops, accumulators |
 | [`ReviewMidterm`](ReviewMidterm.java) | Midterm study menu: decimal to binary, number triangle, letter shift, and int vs. double averages. | Modulo math, `char` arithmetic, integer division |
+| [`TicketBooth`](TicketBooth.java) | Movie ticket booth. Prices each guest's ticket by age group, totals the bill, prints a seating chart, and counts down to showtime. | Enums, arrays, nested loops, `Math.random` |
 
 ## Getting started
 
@@ -72,6 +73,8 @@ learningJavaProjects/
 ├── RideAdmissionChecker.java
 ├── RockPaperScissors.java
 ├── ScoreTracker.java
+├── TicketBooth.java
+├── LICENSE
 └── README.md
 ```
 
