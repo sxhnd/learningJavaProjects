@@ -80,9 +80,8 @@ learningJavaProjects/
 
 ## Known limitations
 
-- Programs that read numbers with `Scanner.nextInt()` crash if you type text instead.
-- `AlmostWordle` marks a repeated letter as "in the wrong spot" every time it appears, even when the word only has one of it.
-- All the logic in each program lives in `main`. Splitting it into methods is the next step.
+- Programs read numbers with small helper methods (`readInt`, `readDouble`, `readBoolean`) that ask again on bad input. Each file keeps its own copy so it stays self-contained.
+- Most of the logic in each program still lives in `main`. Splitting it into methods is the next step.
 
 ## License
 

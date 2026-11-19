@@ -17,17 +17,17 @@ public class TicketBooth {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to the Ticket Booth!");
         System.out.println("How many people are in your party?");
-        int n = input.nextInt();
+        int n = readInt(input);
         double[] prices = new double[n];
         // process every guest 
         for (int i = 0; i < n; i++) {
             double ticketPrice = 0.0;
             System.out.println("Guest " + (i + 1) + " age:");
-            int age = input.nextInt();
+            int age = readInt(input);
             // ask again if the age doesn't make sense
             while (age < 0 || age > 123) {
                 System.out.println("Invalid age. Please enter an age from 0 to 123:");
-                age = input.nextInt();
+                age = readInt(input);
             }
             Age category;
 
@@ -75,4 +75,13 @@ public class TicketBooth {
         System.out.println("Enjoy the movie!");
     } 
     
+
+    /** Reads a whole number, asking again until the user types one. */
+    private static int readInt(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            scanner.next();
+            System.out.print("Please enter a whole number: ");
+        }
+        return scanner.nextInt();
+    }
 }

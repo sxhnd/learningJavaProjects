@@ -10,13 +10,13 @@ public class RideAdmissionChecker {
         boolean hasTicket; 
         // prompt the user for input
         System.out.print("Enter your age: ");
-        age = scanner.nextInt();
+        age = readInt(scanner);
         System.out.print("Enter your height in inches: ");
-        height = scanner.nextInt();
+        height = readInt(scanner);
         System.out.print("Do you have an adult with you? (true/false): ");
-        hasAdult = scanner.nextBoolean();
+        hasAdult = readBoolean(scanner);
         System.out.print("Do you have a ticket? (true/false): ");
-        hasTicket = scanner.nextBoolean();
+        hasTicket = readBoolean(scanner);
            // age checker 
         if (height < 48 || height > 78) {
                 System.out.println("Denied: Height must be between 48 and 78 inches.");
@@ -33,4 +33,21 @@ public class RideAdmissionChecker {
             scanner.close();
         }
 
+    /** Reads a whole number, asking again until the user types one. */
+    private static int readInt(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            scanner.next();
+            System.out.print("Please enter a whole number: ");
+        }
+        return scanner.nextInt();
+    }
+
+    /** Reads true or false, asking again until the user types one. */
+    private static boolean readBoolean(Scanner scanner) {
+        while (!scanner.hasNextBoolean()) {
+            scanner.next();
+            System.out.print("Please type true or false: ");
+        }
+        return scanner.nextBoolean();
+    }
 }

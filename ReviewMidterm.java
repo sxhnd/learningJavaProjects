@@ -22,12 +22,12 @@ public class ReviewMidterm {
             System.out.println("3. Shift Letter");
             System.out.println("4. Average");
             System.out.println("5. Quit");
-            choice = scanner.nextInt();
+            choice = readInt(scanner);
             switch (choice) {
                 case 1:
                     // Call binary conversion method
                     System.out.println("Enter a number to convert to binary:");
-                    number = scanner.nextInt();
+                    number = readInt(scanner);
                     String binary = "";
                 if (number == 0) {
                     binary = "0";
@@ -46,7 +46,7 @@ public class ReviewMidterm {
                 case 2:
                     // Call triangle method
                     System.out.println("Enter the size of the triangle:");
-                    rowSize = scanner.nextInt();
+                    rowSize = readInt(scanner);
                     for( int i =  1; i <= rowSize; i++ ) {
                         for( int j = i; j <= rowSize; j++ ) {
                             System.out.print(j + " ");
@@ -71,11 +71,11 @@ public class ReviewMidterm {
                 case 4:
                     // Call average method
                     System.out.println("Enter the number of elements to average:");
-                    int n = scanner.nextInt();
+                    int n = readInt(scanner);
                     int[] numbers = new int[n]; // Array to store numbers for average calculation
                     for (int i = 0; i < n; i++) {
                         System.out.println("Enter number " + (i + 1) + ":");
-                        numbers[i] = scanner.nextInt();
+                        numbers[i] = readInt(scanner);
                     }
                     // calculate the average using int math and double math
                     int numberArray = 0;
@@ -97,5 +97,14 @@ public class ReviewMidterm {
             }
         }
         scanner.close();
+    }
+
+    /** Reads a whole number, asking again until the user types one. */
+    private static int readInt(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            scanner.next();
+            System.out.print("Please enter a whole number: ");
+        }
+        return scanner.nextInt();
     }
 }

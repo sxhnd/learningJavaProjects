@@ -12,7 +12,7 @@ public class ATMTracker {
         // login while loop
         while (attempts < 3 && !loggedIn) {
             System.out.print("Enter PIN: ");
-            int enteredPin = scanner.nextInt();
+            int enteredPin = readInt(scanner);
 
             if (enteredPin == correctPin) {
                 loggedIn = true;
@@ -30,10 +30,10 @@ public class ATMTracker {
             // if logged in
             System.out.println("Welcome to the ATM Tracker!");
             System.out.println("Please enter your account balance: ");
-            double balance = scanner.nextDouble();
+            double balance = readDouble(scanner);
             while (balance < 0) {
                 System.out.println("Balance cannot be negative. Enter it again.");
-                balance = scanner.nextDouble();
+                balance = readDouble(scanner);
             }
             System.out.println("Your current account balance is: $" + balance);
             while (choice != 4) {
@@ -42,7 +42,7 @@ public class ATMTracker {
                 System.out.println("3. Withdraw");
                 System.out.println("4. Exit");
                 System.out.println("Enter your choice: ");
-                choice = scanner.nextInt();
+                choice = readInt(scanner);
 
                 switch (choice) {
                     case 1:
@@ -51,7 +51,7 @@ public class ATMTracker {
                     case 2:
                         System.out.println("Enter amount to deposit: ");
 
-                        double deposit = scanner.nextDouble();
+                        double deposit = readDouble(scanner);
                         if (deposit > 0) {
                             balance += deposit;
                             System.out.println("Deposit successful. Your new balance is: $" + balance);
@@ -63,7 +63,7 @@ public class ATMTracker {
                         break;
                     case 3:
                         System.out.println("Enter amount to withdraw: ");
-                        double withdraw = scanner.nextDouble();
+                        double withdraw = readDouble(scanner);
                         if (withdraw <= 0) {
                             System.out.println("Invalid Withdrawal.");
                         } else if (withdraw > balance) {
@@ -87,5 +87,23 @@ public class ATMTracker {
         }
 
         scanner.close();
+    }
+
+    /** Reads a whole number, asking again until the user types one. */
+    private static int readInt(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            scanner.next();
+            System.out.print("Please enter a whole number: ");
+        }
+        return scanner.nextInt();
+    }
+
+    /** Reads a number, asking again until the user types one. */
+    private static double readDouble(Scanner scanner) {
+        while (!scanner.hasNextDouble()) {
+            scanner.next();
+            System.out.print("Please enter a number: ");
+        }
+        return scanner.nextDouble();
     }
 }

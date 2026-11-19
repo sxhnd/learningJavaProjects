@@ -7,18 +7,18 @@ public class MultiplicationTable {
         // declare variables
         int sum = 0;
         System.out.println("Enter a number: ");
-        int number = scanner.nextInt();
+        int number = readInt(scanner);
         System.out.println("What should the table start at?");
-        int start = scanner.nextInt();
+        int start = readInt(scanner);
         while (start <= 0) {
             System.out.println("Invalid start. Please enter a number greater than 0:");
-            start = scanner.nextInt();
+            start = readInt(scanner);
         }
         System.out.println("What should the table end at? ");
-        int limit = scanner.nextInt();
+        int limit = readInt(scanner);
         while (limit < start) {
             System.out.println("Invalid limit. Please enter a number greater than or equal to start. ");
-            limit = scanner.nextInt();
+            limit = readInt(scanner);
         }
       // for loop 
         for (int i = start;  i <= limit; i++) {
@@ -28,5 +28,14 @@ public class MultiplicationTable {
         System.out.println("Sum of the table: " + sum);
         // note to self if you declare a variable inside of a loop then it is local to that loop and can't be used outside of the loop
         scanner.close();
+    }
+
+    /** Reads a whole number, asking again until the user types one. */
+    private static int readInt(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            scanner.next();
+            System.out.print("Please enter a whole number: ");
+        }
+        return scanner.nextInt();
     }
 }

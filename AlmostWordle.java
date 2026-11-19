@@ -46,13 +46,25 @@ public class AlmostWordle {
                 }
                 userGuesses++;
 
+                // Pass 1: mark exact matches and count the word's unmatched letters.
+                boolean[] exact = new boolean[5];
+                int[] unmatched = new int[26];
+                for (int i = 0; i < 5; i++) {
+                    if (answer.charAt(i) == word.charAt(i)) {
+                        exact[i] = true;
+                    } else {
+                        unmatched[word.charAt(i) - 'a']++;
+                    }
+                }
+
+                // Pass 2: a letter is "in the wrong spot" only while the word still has one left.
                 for (int i = 0; i < 5; i++) {
                     char answerLetter = answer.charAt(i);
-                    char wordLetter = word.charAt(i);
-
-                    if (answerLetter == wordLetter) {
+                    if (exact[i]) {
                         System.out.println(answerLetter + " - correct spot");
-                    } else if (word.indexOf(answerLetter) != -1) {
+                    } else if (answerLetter >= 'a' && answerLetter <= 'z'
+                            && unmatched[answerLetter - 'a'] > 0) {
+                        unmatched[answerLetter - 'a']--;
                         System.out.println(answerLetter + " - in the wrong spot");
                     } else {
                         System.out.println(answerLetter + " - not in word");

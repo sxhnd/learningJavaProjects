@@ -9,12 +9,12 @@ public class ScoreTracker {
         int highest = 0;
         // prompt the user to enter the first test score
         System.out.println("Enter a test score from 0 to 100,");
-        int score = scanner.nextInt();
+        int score = readInt(scanner);
         // start the loop to collect test scores (the -1 acts as a sentinel)
         while (score != -1) {
             if (score < 0 || score > 100) {
                 System.out.println("Invalid score. Please enter a score from 0 to 100, or -1 to stop: ");
-                score = scanner.nextInt();
+                score = readInt(scanner);
                 continue;
             }
             count++;
@@ -23,7 +23,7 @@ public class ScoreTracker {
                 highest = score;
             }
             System.out.println("Enter a score from 0 to 100, or -1 to stop: ");
-            score = scanner.nextInt();
+            score = readInt(scanner);
         }
         // calculate and display the results
         if (count == 0) {
@@ -50,5 +50,14 @@ public class ScoreTracker {
            scanner.close();
         }
         
-    }
+    
 
+    /** Reads a whole number, asking again until the user types one. */
+    private static int readInt(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            scanner.next();
+            System.out.print("Please enter a whole number: ");
+        }
+        return scanner.nextInt();
+    }
+}
